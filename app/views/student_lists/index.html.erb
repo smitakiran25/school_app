@@ -1,0 +1,4 @@
+<%= datagrid_form_for @student_lists_grid, :method => :get, :url => student_lists_path %>
+
+<%= datagrid_table @student_lists_grid %>
+<%= paginate(@student_lists_grid.assets) %>

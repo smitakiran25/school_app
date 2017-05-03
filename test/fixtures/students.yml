@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  section: MyString
+  dob: 2017-04-27
+  standard: MyString
+  year_of_joined: 1
+
+two:
+  name: MyString
+  section: MyString
+  dob: 2017-04-27
+  standard: MyString
+  year_of_joined: 1
