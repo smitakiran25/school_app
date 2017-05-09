@@ -4,17 +4,27 @@ class StudentListsGrid
 
   scope do
     Student.select(
-        "students.name as name, students.dob as dob,students.section as section,students.year_of_joined as year_of_joined"
-     ).group("students.name", "students.dob", "students.section","students.year_of_joined").order("students.dob")
+        "students.name as name, students.dob as dob,students.section as section,students.year_of_joined as year_of_joined,students.fees as fees"
+     ).group("students.name", "students.dob", "students.section","students.year_of_joined", "students.fees").order("students.dob")
+
+     def row_class(student)
+       case student.section
+       when "A" then "green"
+       when "B" then "red"
+       else "blue"
+       end
+     end
   end
+
 
 
   filter(:year, :enum,
          :select => lambda { Student.all.any? ? (Student.minimum(:dob).year..Student.maximum(:dob).year) : []},
     :include_blank => false
-  ) do |value|
+   ) do |value|
     self.where(["extract(year from students.dob) = ?", value.to_i])
-  end 
+  end
+
   #
   # Columns
   #
@@ -23,5 +33,6 @@ class StudentListsGrid
   column(:dob, :header => "DOB", :order=> "students.dob")
   column(:section, :header => "Student section", :order => "students.section")
   column(:year_of_joined, :header => "Student section", :order => "students.year_of_joined")
+  column(:fees, :header => "Student Fees", :order => "students.fees")
 
 end

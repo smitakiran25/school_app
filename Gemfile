@@ -35,6 +35,8 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'pg', '~> 0.18.4'
+
 gem 'datagrid', '~> 1.4', '>= 1.4.4'
 
 group :development, :test do
