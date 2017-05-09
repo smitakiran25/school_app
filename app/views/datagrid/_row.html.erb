@@ -1,5 +1,5 @@
-<tr class="<%= student_lists_grid.respond_to?(:row_class) ? student_lists_grid.row_class(asset) : "" %>">
-  <% grid.html_columns(*options[:sections]).each do |section| %>
-    <td class="<%= datagrid_column_classes(student_lists_grid, section) %>"><%= datagrid_value(student_lists_grid, section, asset) %></td>
+<tr class="<%= @student_lists_grid.respond_to?(:row_class) ? @student_lists_grid.row_class(asset) : "" %>">
+  <% @student_lists_grid.html_columns(*options[:sections]).each do |section| %>
+    <td class="<%= datagrid_column_classes(@student_lists_grid, section) %>"><%= datagrid_value(@student_lists_grid, section, asset) %></td>
   <% end %>
 </tr>
